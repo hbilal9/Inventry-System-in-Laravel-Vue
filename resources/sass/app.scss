@@ -1,0 +1,207 @@
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgb(0 70 192 / 0.3);
+}
+.form-control-icon {
+    position: relative;
+}
+.form-control-icon .form-control-icon_wrapper {
+    position: absolute;
+    top: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: 0 0;
+    display: inline-block;
+    color: #bab8b8;
+}
+.form-control-icon .form-control-icon_wrapper span {
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+    display: table;
+    text-align: center;
+}
+.form-control-icon .form-control-icon_wrapper {
+    width: 2.625rem;
+    height: 2.625rem;
+}
+.form-control-icon .form-control-icon_wrapper span [class*=" ion-"],
+.form-control-icon .form-control-icon_wrapper span [class^="ion-"] {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.form-control-icon.form-control-icon_right .form-control {
+    padding-right: 2.5rem;
+}
+.form-control-icon.form-control-icon_right .form-control + .form-control-icon_wrapper {
+    left: inherit;
+    right: 0;
+}
+.form-control-icon.form-control-icon_left .form-control {
+    padding-left: 2.5rem;
+}
+.form-control-icon.form-control-icon_left .form-control-icon_wrapper {
+    left: 0;
+}
+.form-control-icon.input-group-lg .form-control-icon_wrapper {
+    width: 2.625rem;
+    height: 2.625rem;
+}
+.form-control-icon.input-group-lg .form-control-icon_wrapper span [class*=" ion-"],
+.form-control-icon.input-group-lg .form-control-icon_wrapper span [class^="ion-"] {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    line-height: 1;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.form-control-icon.input-group-lg.form-control-icon_right .form-control {
+    padding-right: 2.5rem;
+}
+.form-control-icon.input-group-lg.form-control-icon_right .form-control + .form-control-icon_wrapper {
+    left: inherit;
+    right: 0;
+}
+.form-control-icon.input-group-lg.form-control-icon_left .form-control {
+    padding-left: 2.5rem;
+}
+.form-control-icon.input-group-lg.form-control-icon_left .form-control-icon_wrapper {
+    left: 0;
+}
+.form-control-icon_wrapper:focus {
+    outline: none !important;
+}
+.form-control-icon.input-group-sm .form-control-icon_wrapper {
+    width: 2.625rem;
+    height: 2.625rem;
+}
+.form-control-icon.input-group-sm .form-control-icon_wrapper span [class*=" ion-"],
+.form-control-icon.input-group-sm .form-control-icon_wrapper span [class^="ion-"] {
+    width: 1rem;
+    height: 1rem;
+    font-size: 1rem;
+    line-height: 1;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.form-control-icon.input-group-sm.form-control-icon_right .form-control {
+    padding-right: 2.5rem;
+}
+.form-control-icon.input-group-sm.form-control-icon_right .form-control + .form-control-icon_wrapper {
+    left: inherit;
+    right: 0;
+}
+.form-control-icon.input-group-sm.form-control-icon_left .form-control {
+    padding-left: 2.5rem;
+}
+.form-control-icon.input-group-sm.form-control-icon_left .form-control-icon_wrapper {
+    left: 0;
+}
+.bb-0 {
+    border-bottom: 0 !important;
+}
+.invalid-feedback {
+    display: inline-block !important;
+}
+._vue-flash-msg-body {
+    z-index: 1100;
+}
+// .hidden-button-close {
+//     display: none !important;
+// }
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.img-35-cover {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
+
+.inline-block {
+    display: inline-block;
+}
+.img-200-cover-round {
+    width: 200PX;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.badge.b-form-tag {
+    padding: 0 10px 0 10px;
+    margin: 2px;
+    height: 34px;
+    background-color: #e30715;
+    font-size: 15px;
+}
+.close.b-form-tag-remove {
+    padding: 0px 2px 0 10px;
+    vertical-align: super;
+}
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: #cccccc;
+}
+@import "vue-select/src/scss/vue-select.scss";
+.custom-v-select .vs__search::placeholder {
+    background: #ffffff;
+    border: none;
+    color: #6f777e;
+  }
+
+  .custom-v-select .vs__dropdown-toggle,
+  .custom-v-select .vs__dropdown-menu {
+    width: 100%;
+    padding: 5px 0.2rem;
+    font-weight: 400;
+    // line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .bg-gradient-primary {
+    background-color: #e30715;
+    background-image: linear-gradient(
+180deg
+, #e30715 10%, #e30715 100%);
+    background-size: cover;
+}
+.text-primary-theme {
+    color: #e30715 !important;
+  }
+
+  a.text-primary-theme:hover, a.text-primary-theme:focus {
+    color: #85101c !important;
+  }
+    .btn-primary:focus, .btn-primary.focus {
+        box-shadow: 0 0 0 0.2rem rgb(244 77 92 / 40%) !important;
+    }
+.white-color {
+    color: #ffffff;
+}
+.theme-color {
+    color: #e30715;
+}
+.gray-bg {
+    background-color: #cccccc;
+    color: #eeeeee;
+}
