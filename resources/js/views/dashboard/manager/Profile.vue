@@ -210,20 +210,49 @@ export default {
         });
       }
     },
+    updateProfile: async function() {
+      try {
+        this.$store.state.isLoading = true;
+        const response = await userService.updateProfile(
+          this.profileData
+        );
+        this.$store.state.isLoading = false;
+        this.flashMessage.success({
+          message: "Successfully updated.",
+          time: 3000
+        });
+      } catch (error) {
+          this.$store.state.isLoading = false;
+          switch (error.response.status) {
+            case 422:
+              this.errors = error.response.data.errors;
+              break;
 
-  },
-  updateProfile: async function() {
-    try {
-      this.$store.state.isLoading = true;
-      const response = await userService.updateProfile(
-        this.profileData
-      );
-      this.$store.state.isLoading = false;
-      this.flashMessage.success({
-        message: "Successfully updated.",
-        time: 3000
-      });
-    } catch (error) {
+            default:
+              this.flashMessage.error({
+                message: "Some error occurred. please try again.",
+                time: 3000
+              });
+              break;
+          }
+          this.flashMessage.error({
+            message: "Some error occurred, Please try again.",
+            time: 3000
+          });
+      }
+    },
+    changePassword: async function() {
+      try {
+        this.$store.state.isLoading = true;
+        const response = await userService.changePassword(
+            this.password
+        );
+        this.$store.state.isLoading = false;
+        this.flashMessage.success({
+            message: "Password successfully changed.",
+            time: 3000
+        });
+      } catch (error) {
         this.$store.state.isLoading = false;
         switch (error.response.status) {
           case 422:
@@ -241,38 +270,9 @@ export default {
           message: "Some error occurred, Please try again.",
           time: 3000
         });
+      }
     }
   },
-  changePassword: async function() {
-    try {
-      this.$store.state.isLoading = true;
-      const response = await userService.changePassword(
-          this.password
-      );
-      this.$store.state.isLoading = false;
-      this.flashMessage.success({
-          message: "Password successfully changed.",
-          time: 3000
-      });
-    } catch (error) {
-      this.$store.state.isLoading = false;
-      switch (error.response.status) {
-        case 422:
-          this.errors = error.response.data.errors;
-          break;
-
-        default:
-          this.flashMessage.error({
-            message: "Some error occurred. please try again.",
-            time: 3000
-          });
-          break;
-      }
-      this.flashMessage.error({
-        message: "Some error occurred, Please try again.",
-        time: 3000
-      });
-    }
-  }
+  
 }
 </script>

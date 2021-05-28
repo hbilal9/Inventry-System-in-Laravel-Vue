@@ -30,10 +30,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(subCategory, index) in subCategories" :key="index">
+                        <tr v-for="(subCategory, index) in subCategories.data" :key="index">
                         <th scope="row">{{index + 1}}</th>
                             <td>{{subCategory.name}}</td>
-                            <td>{{subCategory.category.name}}</td>
+                            <td v-if="subCategory.id">{{subCategory.category.name}}</td>
                             <td>
                                 <button class="btn btn-primary" v-on:click='editCategory(subCategory)'>
                                     <span class="fas fa-edit"></span>
@@ -43,6 +43,10 @@
                                 </button>
                             </td>
                         </tr>
+                        <pagination :data="subCategories" @pagination-change-page="getSubCategories">
+                            <span slot="prev-nav">&lt; Previous</span>
+                            <span slot="next-nav">Next &gt;</span>
+                        </pagination>
                     </tbody>
                 </table>
             </div>
@@ -210,7 +214,7 @@ export default {
   },
    mounted() {
        this.$store.state.isLoading = true;
-       this.getCategories();
+    //    this.getCategories();
        this.getSubCategories();
    },
   methods: {
@@ -249,19 +253,20 @@ export default {
             });
         }
     },
-    getCategories: async function(){
+    // getCategories: async function(){
+    //     try {
+    //         const response = await subCategoryService.getCategories();
+    //         this.categories = response.data;
+    //         this.$store.state.isLoading = false;
+    //     } catch (error) {
+    //         this.$store.state.isLoading = false;
+    //     }
+    // },
+    getSubCategories: async function(page){
         try {
-            const response = await subCategoryService.getCategories();
-            this.categories = response.data;
-            this.$store.state.isLoading = false;
-        } catch (error) {
-            this.$store.state.isLoading = false;
-        }
-    },
-    getSubCategories: async function(){
-        try {
-            const response = await subCategoryService.getSubCategories();
-            this.subCategories = response.data;
+            const response = await subCategoryService.getSubCategories(page);
+            this.subCategories = response.data.subCategories;
+            this.categories = response.data.categories;
             this.$store.state.isLoading = false;
         } catch (error) {
             this.$store.state.isLoading = false;

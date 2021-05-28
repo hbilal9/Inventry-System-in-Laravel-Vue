@@ -9,7 +9,8 @@ use App\Models\Sold;
 class SoldController extends Controller
 {
     public function fetchAllSales(){
-        $sales = Sold::with('product', 'user')->orderBy('created_at', 'DESC')->get();
+        $sales = Sold::with('product', 'user')
+        ->orderBy('created_at', 'DESC')->paginate(10);
         return $sales;
     }
 

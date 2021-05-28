@@ -24,13 +24,9 @@ Route::namespace('API')->group(function () {
             Route::get('profile', 'AuthController@profile');
             Route::post('change-password', 'AuthController@changePassword');
             Route::get('logout','AuthController@logout');
+            Route::post('update-profile','AuthController@updateProfile');
             Route::get('/fetch-sales' , 'SoldController@fetchAllSales');
             Route::post('/filter-sales' , 'SoldController@filterSales');
-        });
-    });
-
-    Route::group(['prefix' => 'admin', 'middleware' => 'auth:api'], function () {
-        Route::group(['middleware' => 'scope:admin'], function () {
             Route::resource('/categories' , 'CategoryController');
             Route::resource('/sub-categories' , 'SubCategoryController');
             Route::resource('/products' , 'ProductController');
@@ -39,6 +35,11 @@ Route::namespace('API')->group(function () {
             Route::post('/sell-product' , 'CartController@sellProduct');
             Route::get('/get-sub-categories/{id}' , 'ProductController@getSubCategories');
             Route::get('/product/search' , 'ProductController@getSearchResult');
+        });
+    });
+
+    Route::group(['prefix' => 'admin', 'middleware' => 'auth:api'], function () {
+        Route::group(['middleware' => 'scope:admin'], function () {
             Route::get('/get-dashboard' , 'AdminController@getDashboard');
         });
     });

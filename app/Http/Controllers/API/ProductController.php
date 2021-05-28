@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::with('category', 'subCategory', 'brand', 'stock')
-        ->orderBy('created_at', 'DESC')->get();
+        ->orderBy('created_at', 'DESC')->paginate(10);
         return response()->json($product, 200);
     }
 

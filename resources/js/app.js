@@ -15,6 +15,7 @@ Vue.use(Chartkick.use(Chart));
 Vue.use(BootstrapVue);
 Vue.use(FlashMessage);
 
+Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.component('v-select', vSelect);
 
 Vue.filter('timeAgo', (value) => {

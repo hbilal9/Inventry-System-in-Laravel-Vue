@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(category, index) in categories" :key="index">
+                        <tr v-for="(category, index) in categories.data" :key="index">
                         <th scope="row">{{index + 1}}</th>
                             <td>{{category.name}}</td>
                             <td>
@@ -41,6 +41,10 @@
                                 </button>
                             </td>
                         </tr>
+                        <pagination :data = "categories" @pagination-change-page="getCategories">
+                            <span slot="prev-nav">&lt; Previous</span>
+	                        <span slot="next-nav">Next &gt;</span>
+                        </pagination>
                     </tbody>
                 </table>
             </div>
@@ -178,7 +182,7 @@ export default {
         addCategoryData: {},
         editCategoryData: {},
         deleteCategoryData: {},
-        categories: [],
+        categories: {},
         errors: {}
     }
   },
@@ -222,9 +226,9 @@ export default {
             });
         }
     },
-    getCategories: async function(){
+    getCategories: async function(page = 1){
         try {
-            const response = await categoryService.getCategories();
+            const response = await categoryService.getCategories(page);
             this.categories = response.data;
             this.$store.state.isLoading = false;
         } catch (error) {

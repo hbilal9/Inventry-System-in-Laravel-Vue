@@ -61,7 +61,7 @@
               {{$store.state.profile.last_name}}
           </span>
           <div class="dropdown-divider"></div>
-          <router-link to="/admin/profile" class="dropdown-item">
+          <router-link :to="`/${$store.state.profile.role}/profile`" class="dropdown-item">
             <i class="fas fa-user mr-2"></i> Profile
           </router-link>
           <div class="dropdown-divider"></div>

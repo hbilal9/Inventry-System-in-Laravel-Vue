@@ -65,9 +65,15 @@
             v-if="$store.state.profile.role === 'manager'"
         >
             <li class="nav-item menu-open">
-                <router-link to="/" class="nav-link active">
+                <router-link to="/manager" class="nav-link active">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     Dashboard
+                </router-link>
+            </li>
+            <li class="nav-item menu-open">
+                <router-link to="/manager/brands" class="nav-link active">
+                    <i class="nav-icon fas fa-tag"></i>
+                    Brands
                 </router-link>
             </li>
             <li class="nav-item menu-open">
@@ -76,23 +82,71 @@
                     Categories
                 </router-link>
             </li>
+            <li class="nav-item menu-open">
+                <router-link to="/manager/sub-categories" class="nav-link active">
+                    <i class="nav-icon fas fa-th"></i>
+                    Sub Categories
+                </router-link>
+            </li>
+            <li class="nav-item menu-open">
+                <router-link to="/manager/products" class="nav-link active">
+                    <i class="nav-icon fas fa-shopping-basket"></i>
+                    Products
+                </router-link>
+            </li>
+            <li class="nav-item menu-open">
+                <router-link to="/manager/sell-products" class="nav-link active">
+                    <i class="nav-icon fas fa-shopping-cart"></i>
+                    Sell Products
+                </router-link>
+            </li>
+            <li class="nav-item menu-open">
+                <router-link to="/manager/sales" class="nav-link active">
+                    <i class="nav-icon fas fa-credit-card"></i>
+                    Sales
+                </router-link>
+            </li>
+            <li class="nav-item menu-open">
+                <router-link to="/manager/sale-report" class="nav-link active">
+                    <i class="nav-icon fas fa-chart-area"></i>
+                    Sale Report
+                </router-link>
+            </li>
         </ul>
         <ul class="nav nav-pills nav-sidebar flex-column"
             data-widget="treeview" role="menu" data-accordion="false"
             v-if="$store.state.profile.role === 'employee'"
         >
             <li class="nav-item menu-open">
-                <router-link to="/" class="nav-link active">
+                <router-link to="/employee" class="nav-link active">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     Dashboard
                 </router-link>
             </li>
             <li class="nav-item menu-open">
-                <router-link to="/employee/categories" class="nav-link active">
-                    <i class="nav-icon fas fa-th"></i>
-                    Categories
+                <router-link to="/employee/products" class="nav-link active">
+                    <i class="nav-icon fas fa-shopping-basket"></i>
+                    Products
                 </router-link>
             </li>
+            <li class="nav-item menu-open">
+                <router-link to="/employee/sell-products" class="nav-link active">
+                    <i class="nav-icon fas fa-shopping-cart"></i>
+                    Sell Products
+                </router-link>
+            </li>
+            <!-- <li class="nav-item menu-open">
+                <router-link to="/employee/sales" class="nav-link active">
+                    <i class="nav-icon fas fa-credit-card"></i>
+                    Sales
+                </router-link>
+            </li>
+            <li class="nav-item menu-open">
+                <router-link to="/employee/sale-report" class="nav-link active">
+                    <i class="nav-icon fas fa-chart-area"></i>
+                    Sale Report
+                </router-link>
+            </li> -->
         </ul>
       </nav>
     </div>

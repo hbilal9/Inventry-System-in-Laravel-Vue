@@ -15,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('created_at', 'DESC')->get();
+        $categories = Category::orderBy('created_at', 'DESC')
+        ->paginate(10);
         return response()->json($categories, 200);
     }
 

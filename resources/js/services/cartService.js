@@ -1,13 +1,13 @@
 import {http, httpFile} from './http_service';
 
 export function addToCart(product) {
-  return http().post('/admin/cart', product);
+  return http().post('/auth/cart', product);
 }
 
 export function getCartProducts() {
-  return http().get('/admin/cart');
+  return http().get('/auth/cart');
 }
 
 export function sellProduct(data) {
-  return http().post('/admin/sell-product', data);
+  return http().post('/auth/sell-product', data);
 }

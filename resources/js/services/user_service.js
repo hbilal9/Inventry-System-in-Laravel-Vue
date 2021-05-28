@@ -8,8 +8,8 @@ export function changePassword(data) {
   return http().post("/auth/change-password", data);
 }
 
-export function fetchAllSales(){
-  return http().get('/auth/fetch-sales');
+export function fetchAllSales(page){
+  return http().get('/auth/fetch-sales?page='+page);
 }
 
 export function getFilterSales(data){

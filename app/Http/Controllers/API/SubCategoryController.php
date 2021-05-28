@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\SubCategory;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
@@ -15,8 +16,14 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        $subCategories = SubCategory::with('category')->orderBy('created_at', 'DESC')->get();
-        return response()->json($subCategories, 200);
+        $subCategories = SubCategory::with('category')
+        ->orderBy('created_at', 'DESC')->paginate(10);
+        $categories = Category::orderBy('created_at', 'DESC')
+        ->get();
+        return response()->json([
+            'subCategories' => $subCategories,
+            'categories' => $categories,
+        ], 200);
     }
 
     /**

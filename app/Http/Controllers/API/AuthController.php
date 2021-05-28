@@ -84,8 +84,15 @@ class AuthController extends Controller
             'email' => 'required|email'
         ]);
         $user = $request->user();
-        $update = User::where('id', $user->id);
-        dd($update);
+        $update = User::where('id', $user->id)->first();
+        $update->first_name = $request->first_name;
+        $update->last_name = $request->last_name;
+        $update->phone = $request->phone;
+        $update->email = $request->email;
+
+        if ($update->save()) {
+            return response()->json($update, 200);
+        }
     }
 
 

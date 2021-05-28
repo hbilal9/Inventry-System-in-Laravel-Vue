@@ -15,9 +15,9 @@ trim_trailing_whitespace = false
 indent_size = 2
 
 [*.{js}]
-indent_size = 2
+indent_size = 4
 
 [*.{php}]
-indent_size = 2
+indent_size = 4
 [*.{vue}]
-indent_size = 2
+indent_size = 4

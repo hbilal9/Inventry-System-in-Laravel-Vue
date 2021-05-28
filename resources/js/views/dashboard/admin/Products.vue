@@ -36,7 +36,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(product, index) in products" :key="index">
+                        <tr v-for="(product, index) in products.data" :key="index">
                         <th scope="row">{{index + 1}}</th>
                             <td>{{product.name}}</td>
                             <td v-if="product.id">{{product.category.name}}</td>
@@ -56,6 +56,10 @@
                                 </button>
                             </td>
                         </tr>
+                        <pagination :data="products" @pagination-change-page="getProducts">
+                            <span slot="prev-nav">&lt; Previous</span>
+	                        <span slot="next-nav">Next &gt;</span>
+                        </pagination>
                     </tbody>
                 </table>
             </div>
@@ -366,7 +370,7 @@ export default {
         editProductData: {},
         deleteProductData: {},
         brands: [],
-        products: [],
+        products: {},
         categories: [],
         subCategories: [],
         errors: {}
@@ -448,10 +452,10 @@ export default {
             this.$store.state.isLoading = false;
         }
     },
-    getProducts: async function() {
+    getProducts: async function(page = 1) {
         try {
             this.$store.state.isLoading = true;
-            const response = await productService.getProducts();
+            const response = await productService.getProducts(page);
             this.$store.state.isLoading = false;
             this.products = response.data;
             // console.log(this.products)

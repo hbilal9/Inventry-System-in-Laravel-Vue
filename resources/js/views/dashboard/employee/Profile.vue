@@ -195,6 +195,7 @@ export default {
         errors: {}
       };
     },
+  
   mounted() {
     this.getProfile();
   },
@@ -213,7 +214,6 @@ export default {
     updateProfile: async function() {
       try {
         this.$store.state.isLoading = true;
-        // this.profileData._Method = 'PUT';
         const response = await userService.updateProfile(
           this.profileData
         );
@@ -241,7 +241,7 @@ export default {
             time: 3000
           });
       }
-  },
+    },
     changePassword: async function() {
       try {
         this.$store.state.isLoading = true;
@@ -274,6 +274,5 @@ export default {
       }
     }
   },
-  
 }
 </script>
